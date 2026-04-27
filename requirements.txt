@@ -1,0 +1,9 @@
+langchain
+langchain-community
+pypdf
+sentence-transformers
+faiss-cpu #vector database
+ollama
+streamlit
+tqdm
+numpy
