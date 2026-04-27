@@ -13,8 +13,8 @@ def load_and_process_pdf(file_path):
     docs = loader.load()
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50
+        chunk_size=1000,
+        chunk_overlap=200
     )
 
     chunks = splitter.split_documents(docs)
@@ -33,7 +33,7 @@ def create_vector_store(texts):
     return index, texts
 
 
-def retrieve(query, index, texts, k=3):
+def retrieve(query, index, texts, k=5):
     q_embedding = embed_model.encode([query])
     distances, indices = index.search(q_embedding, k)
 
